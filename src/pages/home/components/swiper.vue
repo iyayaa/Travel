@@ -2,7 +2,7 @@
   <div class="wrapper">
     <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
-        <swiper-slide v-for="item in list"><img class="swiper-img" :src="item.imgUrl">
+        <swiper-slide v-for="item in list" :key ="item.id"><img class="swiper-img" :src="item.imgUrl">
         </swiper-slide>
         <!-- Optional controls -->
         <div class="swiper-pagination"  slot="pagination"></div>
@@ -14,6 +14,9 @@
 <script>
   export default {
     name: '',
+    props:{
+      list:Array
+    },
     data() {
       return {
         swiperOption: {
@@ -21,7 +24,7 @@
           autoplay : 3000,
           loop: true,
         },
-        list:[
+        _list:[
         {imgUrl:"https://img1.qunarzz.com/p/tts6/1801/98/655aaf033b5f5302.jpg"},
         {imgUrl:"https://img1.qunarzz.com/p/tts0/1809/c8/f3b35bc005b0c502.jpg"},
         {imgUrl:"https://img1.qunarzz.com/p/tts6/1801/98/655aaf033b5f5302.jpg"},

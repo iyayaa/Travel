@@ -22,9 +22,12 @@
 <script>
 export default {
 	name:'',
+	props:{
+		list:Array
+	},
 	data(){
 		return {
-			list:[
+			_list:[
 				{id:'666',
 				title:'高性价比 泰国甲米5日自由行 ',
 				desc:'广州直飞/海滨旅游理想胜地--甲米/入住甲米查达度假村',

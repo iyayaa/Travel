@@ -2,12 +2,12 @@
   <div class="icons">
   	<swiper :options="swiperOption" ref="mySwiper">
 		<!-- slides -->
-		<swiper-slide v-for="page in pages">
-			<div class="icon" v-for="item in page">
+		<swiper-slide v-for="(page,index) in pages" :key="index">
+			<div class="icon" v-for="item in page" :key="item.id">
 	          <div class='icon-img'>
 	            <img class='icon-img-content' :src="item.imgUrl" />
 	          </div>
-	          <p class="icon-desc">出国路由</p>
+	          <p class="icon-desc">{{item.desc}}</p>
 	        </div>
 		</swiper-slide>
 	</swiper>
@@ -19,11 +19,14 @@
 
 export default {
   name: '',
+  props:{
+    list:Array
+  },
   data () {
   	return {
   		swiperOption: {
         },
-        list:[
+        _list:[
         {imgUrl:'http://www.mangocity.com/3g/msite/images/msite_vacation.jpg'},
         {imgUrl:'http://www.mangocity.com/3g/msite/images/msite_flight.jpg'},
         {imgUrl:'http://www.mangocity.com/3g/msite/images/msite_hotel.jpg'},

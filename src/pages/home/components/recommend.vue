@@ -21,9 +21,12 @@
 <script>
 export default {
 	name:'',
+	props:{
+		list:Array
+	},
 	data(){
 		return {
-			list:[
+			_list:[
 				{id:'666',
 				title:'最具特色的国菜刺身',
 				desc:'香港往返/日本个人旅游签证',
