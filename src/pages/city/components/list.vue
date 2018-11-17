@@ -44,15 +44,20 @@
   </div>
 </template>
 <script>
+import BScroll from 'better-scroll'
 export default {
 	name:'',
+	mounted (){
+		this.scroll = new BScroll(this.$refs.wrapper)
+	},
 	components:{
+
 	}
 
 }
 
 </script>
-<style lang="stylus" scroped>
+<style lang="stylus" scoped>
   @import '~styles/varibles.styl'
   .border-topbottom
     &:before
