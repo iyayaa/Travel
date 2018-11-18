@@ -20,16 +20,19 @@ export default {
 
     },
     handleTouchMove (e) {
-      
       if(this.startFlag){
-        let disY = e.targetTouches[0].clientY - this.ulTop - this.letterTop
-        let index =  Math.floor(disY/this.letterHeight)
-        
-        if(index < 0 || index >= this.letters.length){
-          return false;
-        }
-        console.log(this.ulTop)
-        this.$emit('change',this.letters[index])
+        if (this.timer) {
+            clearTimeout(this.timer)
+          }
+        this.timer = setTimeout(()=>{
+          let disY = e.targetTouches[0].clientY - this.ulTop - this.letterTop
+          let index =  Math.floor(disY/this.letterHeight)
+          
+          if(index < 0 || index >= this.letters.length){
+            return false;
+          }
+          this.$emit('change',this.letters[index])
+        },16)
       }
     },
     handleTouchEnd () {
@@ -43,6 +46,7 @@ export default {
   create () {
     this.startFlag = false
     this.letterHeight = 0
+    this.timer = null
   },
   updated () {
     this.letterTop = this.$refs.list.children[0].offsetTop
