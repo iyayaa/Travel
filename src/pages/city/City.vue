@@ -2,8 +2,8 @@
 	<div>
 		<city-header/>
 		<city-search/>
-		<city-list :cities="cities" :hot="hotCities"/>
-		<city-alphabet :cities="cities"/>
+		<city-list :letter="letter" :cities="cities" :hot="hotCities"/>
+		<city-alphabet @change="letterChange" :cities="cities"/>
 	</div>
 </template>
 <script>
@@ -30,8 +30,11 @@ export default {
 		cityAlphabet
 	},
 	methods:{
+		letterChange (letter) {
+			// console.log(letter)
+			this.letter = letter
+		},
 		handleGetCityInfoSucc(res){
-			console.log(res)
 			res = res.data
 			if (res.ret && res.data) {
 		       const data = res.data
