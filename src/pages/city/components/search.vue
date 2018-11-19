@@ -3,10 +3,10 @@
 		<div class="search">
 	    <input v-model="keyword" class="search-input" type="text" placeholder="输入城市名或拼音" />
 	  </div>
-    <div class="search-content" ref="searchDiv">
+    <div class="search-content" ref="searchDiv" v-show="keyword">
       <ul>
         <li
-          class="search-item border-bottom" v-for= "(item,index) in resultList" :key ="index"  >
+          class="search-item border-bottom" v-for= "(item,index) in resultList" :key ="index" @click = "cityClick(item.name)" >
           {{item.name}}
         </li>
         <li class="search-item border-bottom" v-show="noData">
@@ -30,6 +30,12 @@ export default {
       noData:false,
       timer:null,
     }
+  },
+  methods:{
+    cityClick (city){
+      this.$store.commit('changeCity',city)
+      this.$router.push('/')
+    },
   },
   watch:{
     keyword (){
