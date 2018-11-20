@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" @click="closeImgs">
     <div class="wrapper">
       <swiper :options="swiperOption" ref="mySwiper">
         <swiper-slide v-for= "(item,index) in imgs" :key = "index">
@@ -33,6 +33,11 @@ export default {
         observer: true
       },
     }
+  },
+  methods:{
+    closeImgs(){
+      this.$emit('closeImgs')
+    },
   },
 }
 	

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="banner" >
+    <div class="banner" @click="showImgs">
       <img class="banner-img" src="http://wimg.mangocity.com/cms/d/file/2016/04-22/669c5543aa25706c18f0cc9d4179bf67.jpg" />
       <div class="banner-info">
         <div class="banner-tittle">
@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <gallary/>	
+    <gallary @closeImgs ="toCloseImgs" v-show='gallaryShow' />	
   </div>
 </template>
 
@@ -20,6 +20,19 @@
 import gallary from 'common/gallary/gallary'
 export default {
 	name:'',
+	data (){
+		return {
+			gallaryShow:false,
+		}
+	},
+	methods:{
+		showImgs (){
+			this.gallaryShow = true
+		},
+		toCloseImgs(){
+			this.gallaryShow = false
+		},
+	},
 	props:{
 	},
 	components:{
