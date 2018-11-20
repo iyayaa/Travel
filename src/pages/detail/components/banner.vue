@@ -1,18 +1,18 @@
 <template>
   <div>
     <div class="banner" @click="showImgs">
-      <img class="banner-img" src="http://wimg.mangocity.com/cms/d/file/2016/04-22/669c5543aa25706c18f0cc9d4179bf67.jpg" />
+      <img class="banner-img" :src="bannerImg" />
       <div class="banner-info">
         <div class="banner-tittle">
-          香港往返/日本个人旅游签证
+          {{this.sightName}}
         </div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe692;</span>
-          12
+          {{this.bannerImgs.length}}
         </div>
       </div>
     </div>
-    <gallary @closeImgs ="toCloseImgs" v-show='gallaryShow' />	
+    <gallary @closeImgs ="toCloseImgs" :imgs="bannerImgs" v-show='gallaryShow' />	
   </div>
 </template>
 
@@ -34,6 +34,9 @@ export default {
 		},
 	},
 	props:{
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
 	},
 	components:{
 		gallary,
