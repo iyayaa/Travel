@@ -12,12 +12,15 @@
         </div>
       </div>
     </div>
-    <gallary @closeImgs ="toCloseImgs" :imgs="bannerImgs" v-show='gallaryShow' />	
+    <fadeAnimation>
+      <gallary @closeImgs ="toCloseImgs" :imgs="bannerImgs" v-show='gallaryShow' />
+    </fadeAnimation>	
   </div>
 </template>
 
 <script>
 import gallary from 'common/gallary/gallary'
+import fadeAnimation from 'common/fade/fadeAnimation'
 export default {
 	name:'',
 	data (){
@@ -40,6 +43,7 @@ export default {
 	},
 	components:{
 		gallary,
+    fadeAnimation
 	}
 }
 	
