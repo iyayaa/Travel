@@ -29,7 +29,6 @@ export default {
 	},
 	methods:{
 		bodyScroll (){
-			// console.log(document.documentElement.scrollTop)
 			let top = document.documentElement.scrollTop
 			if(top < 60 ){
 				this.showAbs = true
@@ -44,6 +43,9 @@ export default {
 	},
 	activated () {
 		window.addEventListener('scroll',this.bodyScroll)
+	},
+	deactivated () {
+		window.removeEventListener('scroll',this.bodyScroll)
 	},
 }
 	
