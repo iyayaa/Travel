@@ -12,14 +12,19 @@
         </div>
       </div>
     </div>
+    <gallary/>	
   </div>
 </template>
 
 <script>
+import gallary from 'common/gallary/gallary'
 export default {
 	name:'',
 	props:{
 	},
+	components:{
+		gallary,
+	}
 }
 	
 </script>
