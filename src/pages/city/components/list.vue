@@ -13,7 +13,7 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <div class="button-wrapper" v-for="item in hot" :key = "item.id"
-          @click = "cityClick(item.name)" >
+          @click.prevent = "cityClick(item.name)" >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -21,7 +21,7 @@
       <div class="area"  v-for = "(item,key) in cities" :key ="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for= "innerItem in item" :key="innerItem.id" @click = "cityClick(innerItem.name)" >
+          <div class="item border-bottom" v-for= "innerItem in item" :key="innerItem.id" @click.prevent = "cityClick(innerItem.name)" >
             {{innerItem.name}}
           </div>
         </div>
